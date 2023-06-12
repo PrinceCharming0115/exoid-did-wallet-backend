@@ -1,7 +1,9 @@
 import 'dotenv/config';
 import { DataSourceOptions } from 'typeorm';
 
-// import {} from 'entities';
+import {
+  KYCInfoEntity
+} from 'entities';
 
 const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } = process.env;
 
@@ -14,7 +16,9 @@ export const dbOptions: DataSourceOptions = {
   database: DB_NAME,
   logging: false,
   synchronize: false,
-  entities: [],
+  entities: [
+    KYCInfoEntity
+  ],
   extra: {
     connectionLimit: 10,
   },

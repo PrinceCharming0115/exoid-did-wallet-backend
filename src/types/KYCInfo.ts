@@ -1,0 +1,12 @@
+/**
+ * 0 - PASSPORT
+ * 1 - DRIVER_LICENSE
+ * 2 - ID_CARD
+ * 3 - RESIDENCE_PERMIT
+ */
+export enum IDCardTypes {
+  PASSPORT,
+  DRIVER_LICENSE,
+  ID_CARD,
+  RESIDENCE_PERMIT,
+}

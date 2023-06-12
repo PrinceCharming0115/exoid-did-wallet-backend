@@ -1,0 +1,1 @@
+export * as kycController from './kyc';

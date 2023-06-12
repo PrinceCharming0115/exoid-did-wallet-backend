@@ -2,9 +2,6 @@ import { json as bodyParserJSON } from 'body-parser';
 import cors from 'cors';
 import 'dotenv/config';
 import express, { Express } from 'express';
-import swaggerUi from 'swagger-ui-express';
-
-import swaggerDocument from '../../swagger.json';
 
 import { ROUTE_VERSION } from 'config';
 
@@ -23,8 +20,6 @@ const backendSetup = (app: Express) => {
 
   app.use(requestLoggerMiddleware);
 
-  // For Swagger
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   // Health check
   app.use('/health', function (req, res) {
