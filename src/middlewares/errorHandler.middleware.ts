@@ -14,6 +14,7 @@ export const errorHandlerMiddleware = (
   Logger.log(error);
 
   if (error instanceof CustomError) {
+
     if (error instanceof ArgumentValidationError) {
       res.status(error.errorCode).json({
         message: error.messages,

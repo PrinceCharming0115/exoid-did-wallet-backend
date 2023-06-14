@@ -1,4 +1,3 @@
-import axois from 'axios';
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import moment from 'moment';

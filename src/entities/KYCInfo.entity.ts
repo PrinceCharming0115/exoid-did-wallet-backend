@@ -5,11 +5,14 @@ import { CoreEntity } from './Core.entity';
 import { IDCardTypes, UserKYCStatus } from 'types';
 
 @Entity({
-  name: 'kyc_info',
+  name: 'kyc_certificate',
 })
 export class KYCInfoEntity extends CoreEntity {
   @Column({ name: 'uuid' })
   uuid: string;
+
+  @Column({ name: 'account_id' })
+  accountID: string;
 
   @Column({ name: 'first_name' })
   firstName: string;
@@ -25,9 +28,6 @@ export class KYCInfoEntity extends CoreEntity {
 
   @Column({ name: 'nationality' })
   nationality: string;
-
-  @Column({ name: 'user_id' })
-  userID: number;
 
   @Column({ name: 'kyc_status' })
   kycStatus: UserKYCStatus;

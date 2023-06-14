@@ -5,4 +5,4 @@ export const DATABASE_CONNECTION_FAILURE = 'Database connection failure!';
 
 export const UNKNOWN_ERROR = 'Unknown error';
 
-export const UNAUTHORIZED = 'Unauthorized user';
+export const UNAUTHORIZED = 'Unauthorized account';
