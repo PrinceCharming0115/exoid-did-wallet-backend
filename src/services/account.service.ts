@@ -14,3 +14,16 @@ export const getIdentifier = async (
   return accountInfo;
 };
 
+export const createAccount = async (
+  data: Pick<AccountEntity, | 'UUID' | 'identifier'>
+): Promise<AccountEntity | null> => {
+  const accountRepository = await getAccountRepository();
+
+  const account: AccountEntity = new AccountEntity();
+  account.UUID = data.UUID;
+  account.identifier = data.identifier;
+
+  await accountRepository.save(account);
+
+  return account;
+};
