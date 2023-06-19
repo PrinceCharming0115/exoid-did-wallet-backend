@@ -20,6 +20,11 @@
       "npx eslint --fix"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint ."
+    }
+  },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/cors": "^2.8.12",

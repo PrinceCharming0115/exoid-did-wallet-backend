@@ -3,18 +3,14 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "unused-imports", "autofix"],
+  "plugins": ["@typescript-eslint", "unused-imports"],
   "rules": {
     "max-len": [
       "warn",
@@ -76,25 +72,7 @@
       }
     ],
     "semi": ["error", "always"],
-    "unused-imports/no-unused-imports": "warn",
-    "autofix/no-unused-labels": "warn",
-    "autofix/no-unused-vars": "warn",
-    "autofix/no-var": "warn",
-    "autofix/no-multi-spaces": "warn"
+    "unused-imports/no-unused-imports": "warn"
   },
-  "ignorePatterns": [
-    "node_modules",
-    "dist",
-    // "server/config",
-    "server/constants",
-    "server/controllers",
-    "server/entities",
-    "server/errors",
-    "server/middlewares",
-    "server/routes",
-    "server/services",
-    // "server/setup",
-    "server/types",
-    "server/utils"
-  ]
+  "ignorePatterns": ["node_modules", "build"]
 }

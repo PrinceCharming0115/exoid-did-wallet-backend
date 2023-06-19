@@ -1,12 +1,30 @@
 import { KYCInfoEntity } from 'entities';
-
 import { getKYCInfoRepository } from 'utils';
+
+export const createKycCertificate = async (
+  data: Pick<KYCInfoEntity, 'accountID' | 'uuid'>
+): Promise<KYCInfoEntity | null> => {
+  const kycInfoRepository = await getKYCInfoRepository();
+
+  const kycCertificate = new KYCInfoEntity();
+
+  kycCertificate.accountID = data.accountID;
+  kycCertificate.uuid = data.uuid;
+
+  await kycInfoRepository.save(kycCertificate);
+  return kycCertificate;
+};
 
 export const updateKYCInfo = async (
   condition: Pick<KYCInfoEntity, 'uuid'>,
   data: Pick<
     KYCInfoEntity,
-    'firstName' | 'middleName' | 'lastName' | 'birthday' | 'nationality' | 'kycStatus'
+    | 'firstName'
+    | 'middleName'
+    | 'lastName'
+    | 'birthday'
+    | 'nationality'
+    | 'kycStatus'
   > &
     Partial<
       Pick<
@@ -23,8 +41,8 @@ export const updateKYCInfo = async (
 
   const kycInfo: KYCInfoEntity | null = await kycInfoRepository.findOneBy({
     ...condition,
-    deletedAt: null
-  })
+    deletedAt: null,
+  });
   kycInfo.firstName = data.firstName;
   kycInfo.middleName = data.middleName;
   kycInfo.lastName = data.lastName;
@@ -42,9 +60,7 @@ export const updateKYCInfo = async (
   return kycInfo;
 };
 
-export const getKYCInfo = async (
-  id: number
-): Promise<KYCInfoEntity | null> => {
+export const getKYCInfo = async (id: number): Promise<KYCInfoEntity | null> => {
   const kycInfoRepository = await getKYCInfoRepository();
 
   const kycInfo: KYCInfoEntity | null = await kycInfoRepository.findOneBy({
@@ -61,8 +77,8 @@ export const getKYC = async (
 
   const kyc: KYCInfoEntity | null = await kycInfoRepository.findOneBy({
     ...data,
-    deletedAt: null
+    deletedAt: null,
   });
 
   return kyc;
-}
+};

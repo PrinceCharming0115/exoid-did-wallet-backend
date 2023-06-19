@@ -5,6 +5,13 @@ import { checkIdentifier } from 'utils';
 
 const kycRouter = express.Router();
 
+kycRouter.post(
+  '/create-kyc-certificate',
+  checkIdentifier,
+  kycController.createKycCertificateValidator(),
+  kycController.createKycCertificate
+);
+
 // User KYC Veriff Webhook
 kycRouter.post(
   '/veriff',

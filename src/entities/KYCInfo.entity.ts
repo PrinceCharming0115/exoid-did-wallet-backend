@@ -12,7 +12,7 @@ export class KYCInfoEntity extends CoreEntity {
   uuid: string;
 
   @Column({ name: 'account_id' })
-  accountID: string;
+  accountID: number;
 
   @Column({ name: 'first_name' })
   firstName: string;
