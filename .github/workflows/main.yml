@@ -1,34 +1,32 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: CI
-
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
+
+name: Exoid Backend Deployment Pipeline
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - uses: actions/checkout@v2
-      - name: use Node.js
-        uses: actions/setup-node@v2
-      - name: install
-        run: npm install
-      - name: test
-        run: npm run test
-      - name: Release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Checkout
+      uses: actions/checkout@v2
+        
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        host : ${{ secrets.HOST_DNS }}
+        username : ${{ secrets.USERNAME }}
+        script: |
+            cd /home/${{ secrets.USERNAME }}/ExoidBackend
+            sudo git pull
+            sudo docker-compose down
+            sudo docker system prune --force
+            sudo docker-compose up --build -d 
