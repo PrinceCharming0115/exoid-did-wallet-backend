@@ -22,43 +22,44 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         key: |
-                b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
-                NhAAAAAwEAAQAAAYEAt09vMih7pFGV6AvgQv5KV0Vx8H++K8+Q1pmFKb+SaZ1Z0r4R/SJI
-                zt9Jz2nC7Uor0SGha6Z7i6EUt303zKp3mNsHBCmFYCbG7HbyfUe8x+gNtAM7ovih7zwPuH
-                /DznCRDu//6PASEPtN2/N7MJUoGYFkF4yRPRNDkLoHXdEw8zXIiNySgYghN9Yq5doqcyS0
-                eWd3vd/1wRZKsgup77l1Q8QIrYWdcc6ty7YL5WoW071EQZEfDB2lELKBHU1aWfZHpoUTbr
-                HhARyuDlaGAk1h0yGo0qyEWQkKjoJ932RdsZpyEYUwLl20sdQT23m2oCD+JAHsy37U48/h
-                kbk8OyTCsQSHhr4Kfm7TRYQELJbjK+MFC19pHDuJjDlPYesVoOnpcPmNWi/NUt7dsRBvi+
-                7x61yrSejmOOny1yb99DAZGdaCKsW4yFNMj8X0IDbGl2mpeYD5LBgx1AczigiMrjxP04re
-                B5nfMgstvJrzGv4+kXp0NIYg/E/8+p2vkkL0UzPZAAAFkHP9PzJz/T8yAAAAB3NzaC1yc2
-                EAAAGBALdPbzIoe6RRlegL4EL+SldFcfB/vivPkNaZhSm/kmmdWdK+Ef0iSM7fSc9pwu1K
-                K9EhoWume4uhFLd9N8yqd5jbBwQphWAmxux28n1HvMfoDbQDO6L4oe88D7h/w85wkQ7v/+
-                jwEhD7TdvzezCVKBmBZBeMkT0TQ5C6B13RMPM1yIjckoGIITfWKuXaKnMktHlnd73f9cEW
-                SrILqe+5dUPECK2FnXHOrcu2C+VqFtO9REGRHwwdpRCygR1NWln2R6aFE26x4QEcrg5Whg
-                JNYdMhqNKshFkJCo6Cfd9kXbGachGFMC5dtLHUE9t5tqAg/iQB7Mt+1OPP4ZG5PDskwrEE
-                h4a+Cn5u00WEBCyW4yvjBQtfaRw7iYw5T2HrFaDp6XD5jVovzVLe3bEQb4vu8etcq0no5j
-                jp8tcm/fQwGRnWgirFuMhTTI/F9CA2xpdpqXmA+SwYMdQHM4oIjK48T9OK3geZ3zILLbya
-                8xr+PpF6dDSGIPxP/Pqdr5JC9FMz2QAAAAMBAAEAAAGAeu+a81iTEzBkCKtuS3+e+8hnEZ
-                OaRmd+C24KEGWaG5qbkupFxi4oBhVZuvCC+gC0Qhz71OZiFNKCwkwIEAqDCtBZdEEkYcef
-                wRZEqiBiSu8lwYQpirKUZ40wPdvxxZFYt1vdlKrsctcW8FvqUjq2GeTc664p+Xvh5D3ekt
-                yop3N6ec7zsktJe9j2DBC0R2RmZMUvWPfKKSR6E84eudb2/euKplTlsl2Z0PTWJZVwmbBl
-                BlP9LnLzMK+GR9CIt6yiXKJ7pM6pc7LRgNFhKhPWbtcg+oTQ35pVxYc1/+HuMxUfuy7uoZ
-                7UGhLaHY949bj4qJfIqRRkd3/iTVDpMRlKz7wlCigkdRpiGNjil1cMV38QFqW6KuVks7SH
-                XO3LYaaEDnvkIVBmQJR1rLPWfxcowl8mOkbMfs0AgfMqMmQN+mYxFtQu8i0/r6p4N3LUXL
-                17M37jXeYYhu5cd/QG+lc2y3wxADNsOeEoE6est9lov21F0+FNYysbHAPFyioLRt/BAAAA
-                wBiESI4BgJMNMu40CyjE5yqbIcGStjd0tq2PAR0YpSyMZH15Wqk4J/U45PnD0p/Yd6cpI8
-                s1eMqlGhYJ5FR5hYM4QBBuI9ffCPv8ziZQr5UPjzeRXgmC/eootWeT4KPrmMLavCsPMEF6
-                y0minWN5Std1pts6r3oJNWv5SsjglXZH5mI6Mrt+sj8dosGacvUj3UygWkPLWYbFyKs0fU
-                Pa3AgOPw6LUZc1lX3EyPLXhVhwxVZh2jMkLNBokZK2+L9zYQAAAMEA8QcTKYWltcrBbhlr
-                YJkIBiofkL+WaGk3tSJaBXPbKgEMHgOsvNVvYCChutpme1nQ3d7DcaCga3wU6MSlCprO/Q
-                ocgdIsd18ypJjnZ9SP/TZgfX3uSavXra68+GweTJt/R4bmtqyvn7kxl/dSskCCQFtvXcFt
-                kyPONHNrf3+qWhqBM/KwHljA6cY7kifflNJG0ZcfuyPYQTQFw682+zHpInHrS2zUoiu0U5
-                OLgR6dW4HIw7nEO5npRW0vDKmJ7R3XAAAAwQDCsoNxYRT6c1mj2z2DG7LIsbxpIDZTKCIQ
-                SJafjgQ5fAa042bUhIJ+rCcDBkC8k9ZQ8fLUD4SjutA3tS6Fy60yZmaCX/5Jyy6ioAaWYt
-                /RgjIsde5I00MCpXCq+vUAs5atyBfiTC54ACwjSztOpteFroWtFIOEun+BIXf07q7f3I3j
-                gLYO7ayQOdPBh4SZ7OPQrE1kOaXSh0zdRX2wQWDOEB2IDjcfrzBplutI8lujQE3eWeoZkU
-                akg7ZmMcD4Jc8AAAAXdWJ1bnR1QGlwLTE3Mi0zMS05MC0xOTEBAgME
-                
+          -----BEGIN OPENSSH PRIVATE KEY-----  
+          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
+          -----END OPENSSH PRIVATE KEY-----
 
         host : 35.173.135.96
         username : ubuntu
