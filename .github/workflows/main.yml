@@ -21,7 +21,26 @@ jobs:
     - name: executing remote ssh commands
       uses: appleboy/ssh-action@master
       with:
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvtiGhV6sNFHIi+Wc+A/s2Hy/K67odhY5a8mrAFo/jsjUvUKejWNmgBq/qXMD3FKiaZodEoIQVuvQ2Df1Ir51/OvVJcpElGvWIqk9epdUE2B3f8Z1nc8MZ8FYSus0ER81nMaczGyOnRBw/uyaAUPiZ3Q1t8r2kiZQHVDN6w779rVrSB3NfFQx4v9Zp3xn7CCLDx51IYDHb+K7VFjtx2Dqp+Ty5UDuTlvYec9Z64JAgSleEyyqj2sljwaB1M7DbrApjJo8+cjhCrA4Z55Ya4AiHVe16Vg3NtTS2Y9tC31TE14OESLTTXgxaZUp+YE1E/KlF/zVBoGbfmygZULgqRmGp ExoidBackend
+        key: b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+              NhAAAAAwEAAQAAAYEAz7PpT1fdbbZYl30dMXejE3mjm6jEohN0bbfEPr6BrBOl9RpRxRqD
+              WbBGRIgGqqyooUy4Cc9z2vKzfYrniIRpN1IXN/9KvTPaNVXFCXKuAQ/BJw51d2JiZfPxRe
+              lLVYJclIhTJAhkDihwiyHAmDeibieQou6IFkI8YINQzd79AvnK5GBP8iZmxzhcFbPnNgLa
+              /CO0LOpbs1d+bHEBaVPOrOYAYfB/kZPz7Bd0VG3WyF6X0fYS5gZZrgs0BqvQWJdczKD1jo
+              spFJHnLHJ2VNPJhNNEsZYgLWZlv9zpvqGCInJe0PO0LLwY4lRXdWBb/2hIqbadXgwEyQEO
+              pAIF/13x+r68psDDOBg1EKhRFobC1svBgExpM6Ds7zUdSUgQYjHRS49Uh06lfhoHlq6Ny8
+              6IcnhJgBAqu1mv/YocqxnyoioBqtVMoJRXwF8d/5QBpKkUzGB2C2WEnJdEDd9IJWnE6H8P
+              nJuxgnM7BrTB1Gy5xFq81G0blabaradj5p8TqF3ZAAAFkEy3hj5Mt4Y+AAAAB3NzaC1yc2
+              EAAAGBAM+z6U9X3W22WJd9HTF3oxN5o5uoxKITdG23xD6+gawTpfUaUcUag1mwRkSIBqqs
+              qKFMuAnPc9rys32K54iEaTdSFzf/Sr0z2jVVxQlyrgEPwScOdXdiYmXz8UXpS1WCXJSIUy
+              QIZA4ocIshwJg3om4nkKLuiBZCPGCDUM3e/QL5yuRgT/ImZsc4XBWz5zYC2vwjtCzqW7NX
+              fmxxAWlTzqzmAGHwf5GT8+wXdFRt1shel9H2EuYGWa4LNAar0FiXXMyg9Y6LKRSR5yxydl
+              TTyYTTRLGWIC1mZb/c6b6hgiJyXtDztCy8GOJUV3VgW/9oSKm2nV4MBMkBDqQCBf9d8fq+
+              vKbAwzgYNRCoURaGwtbLwYBMaTOg7O81HUlIEGIx0UuPVIdOpX4aB5aujcvOiHJ4SYAQKr
+              tZr/2KHKsZ8qIqAarVTKCUV8BfHf+UAaSpFMxgdgtlhJyXRA3fSCVpxOh/D5ybsYJzOwa0
+              wdRsucRavNRtG5Wm2q2nY+afE6hd2QAAAAMBAAEAAAGAKFtu0+ngrnal1BmNWJVEbH5QGe
+              i6/DsHfmIckYx2qbbPokZQ6RlzuDOWE67SjMsroNvFTrKucjaCRbx9rHr97q/Wrxy9qvGu
+              Tnqx5FoSEUa8YxheHqpRMDosAUeJSb4guwOaFABFYLLe20ndoDX/K6QoaGAstRZ9oMsjIj
+
         host : 35.173.135.96
         username : ubuntu
         script: |
