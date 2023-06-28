@@ -21,7 +21,7 @@ jobs:
     - name: executing remote ssh commands
       uses: appleboy/ssh-action@master
       with:
-        key: -----BEGIN OPENSSH PRIVATE KEY-----
+        key: 
                 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
                 NhAAAAAwEAAQAAAYEAt09vMih7pFGV6AvgQv5KV0Vx8H++K8+Q1pmFKb+SaZ1Z0r4R/SJI
                 zt9Jz2nC7Uor0SGha6Z7i6EUt303zKp3mNsHBCmFYCbG7HbyfUe8x+gNtAM7ovih7zwPuH
@@ -58,7 +58,7 @@ jobs:
                 /RgjIsde5I00MCpXCq+vUAs5atyBfiTC54ACwjSztOpteFroWtFIOEun+BIXf07q7f3I3j
                 gLYO7ayQOdPBh4SZ7OPQrE1kOaXSh0zdRX2wQWDOEB2IDjcfrzBplutI8lujQE3eWeoZkU
                 akg7ZmMcD4Jc8AAAAXdWJ1bnR1QGlwLTE3Mi0zMS05MC0xOTEBAgME
-                -----END OPENSSH PRIVATE KEY-----
+                
 
         host : 35.173.135.96
         username : ubuntu
