@@ -21,7 +21,7 @@ jobs:
     - name: executing remote ssh commands
       uses: appleboy/ssh-action@master
       with:
-        key: 
+        key: |
                 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
                 NhAAAAAwEAAQAAAYEAt09vMih7pFGV6AvgQv5KV0Vx8H++K8+Q1pmFKb+SaZ1Z0r4R/SJI
                 zt9Jz2nC7Uor0SGha6Z7i6EUt303zKp3mNsHBCmFYCbG7HbyfUe8x+gNtAM7ovih7zwPuH
