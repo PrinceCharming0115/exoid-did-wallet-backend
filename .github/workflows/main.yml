@@ -21,11 +21,11 @@ jobs:
     - name: executing remote ssh commands
       uses: appleboy/ssh-action@master
       with:
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        host : ${{ secrets.HOST_DNS }}
-        username : ${{ secrets.USERNAME }}
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvtiGhV6sNFHIi+Wc+A/s2Hy/K67odhY5a8mrAFo/jsjUvUKejWNmgBq/qXMD3FKiaZodEoIQVuvQ2Df1Ir51/OvVJcpElGvWIqk9epdUE2B3f8Z1nc8MZ8FYSus0ER81nMaczGyOnRBw/uyaAUPiZ3Q1t8r2kiZQHVDN6w779rVrSB3NfFQx4v9Zp3xn7CCLDx51IYDHb+K7VFjtx2Dqp+Ty5UDuTlvYec9Z64JAgSleEyyqj2sljwaB1M7DbrApjJo8+cjhCrA4Z55Ya4AiHVe16Vg3NtTS2Y9tC31TE14OESLTTXgxaZUp+YE1E/KlF/zVBoGbfmygZULgqRmGp ExoidBackend
+        host : 35.173.135.96
+        username : ubuntu
         script: |
-            cd /home/${{ secrets.USERNAME }}/ExoidBackend
+            cd /home/ubuntu/ExoidBackend
             sudo git pull
             sudo docker-compose down
             sudo docker system prune --force
