@@ -1,14 +1,13 @@
 import 'dotenv/config';
-import { DataSourceOptions } from 'typeorm';
-
 import {
   EmailCertificateEntity,
   AccountEntity,
-  KYCInfoEntity, 
+  KYCInfoEntity,
   VerifyEmailEntity,
   VerificationEntity,
-  InteractionEntity
+  InteractionEntity,
 } from 'entities';
+import { DataSourceOptions } from 'typeorm';
 
 const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } = process.env;
 
@@ -27,7 +26,7 @@ export const dbOptions: DataSourceOptions = {
     EmailCertificateEntity,
     AccountEntity,
     VerificationEntity,
-    InteractionEntity
+    InteractionEntity,
   ],
   extra: {
     connectionLimit: 10,

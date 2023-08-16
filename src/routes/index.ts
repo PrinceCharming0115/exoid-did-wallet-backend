@@ -1,10 +1,9 @@
 import express from 'express';
-
-import kycRouter from './kyc.router';
 import emailCertificationRouter from './email.router';
 import identifierRouter from './identifier.router';
-import verificationRouter from './verification.router';
 import interactionRouter from './interaction.router';
+import kycRouter from './kyc.router';
+import verificationRouter from './verification.router';
 
 const appRoutes = express.Router();
 

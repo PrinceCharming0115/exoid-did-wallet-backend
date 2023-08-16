@@ -1,6 +1,5 @@
-import { DBConnect } from '../dbConnector';
-
 import { VerificationEntity } from 'entities';
+import { DBConnect } from '../dbConnector';
 
 export const getVerificationRepository = async () => {
   const connection = await DBConnect.getConnection();

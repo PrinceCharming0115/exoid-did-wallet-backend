@@ -1,6 +1,5 @@
-import { DBConnect } from '../dbConnector';
-
 import { InteractionEntity } from 'entities';
+import { DBConnect } from '../dbConnector';
 
 export const getInteractionRepository = async () => {
   const connection = await DBConnect.getConnection();

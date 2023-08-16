@@ -16,5 +16,5 @@ export class InteractionEntity extends CoreEntity {
   verificationData: string;
 
   @Column({ name: 'result' })
-  result: string; 
+  result: number; 
 }
