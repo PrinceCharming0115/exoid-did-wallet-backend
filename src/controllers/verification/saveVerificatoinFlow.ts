@@ -1,7 +1,7 @@
 import { REASON_CODES } from 'consts';
 import 'dotenv/config';
 import { CustomError } from 'errors';
-import { Request, Response, response } from 'express';
+import { Response } from 'express';
 import httpStatus from 'http-status';
 import { verificationService } from 'services';
 import { AuthRequest } from 'types';
