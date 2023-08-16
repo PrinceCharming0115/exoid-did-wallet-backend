@@ -1,4 +1,4 @@
-import { AccountEntity } from 'entities';
+  import { AccountEntity } from 'entities';
 
 import { getAccountRepository } from 'utils';
 
@@ -9,6 +9,18 @@ export const getIdentifier = async (
 
   const accountInfo: AccountEntity | null = await accountRepository.findOneBy({
     identifier: identifier
+  });
+
+  return accountInfo;
+};
+
+export const getIdentifierByAccount = async (
+  accountID: number
+): Promise<AccountEntity | null> => {
+  const accountRepository = await getAccountRepository();
+
+  const accountInfo: AccountEntity | null = await accountRepository.findOneBy({
+    id: accountID
   });
 
   return accountInfo;

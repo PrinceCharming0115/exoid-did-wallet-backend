@@ -70,7 +70,7 @@ export const createVerificationCodeHandler = async (
       'Unknown Error',
       httpStatus.BAD_REQUEST, 
       REASON_CODES.EMAIL.UNKNOW_ERROR
-      );
+    );
   }
 
   axios.post(process.env.EMAIL_SERVICE_ENDPOINT, {

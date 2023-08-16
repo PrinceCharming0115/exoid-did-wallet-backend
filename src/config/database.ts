@@ -5,7 +5,9 @@ import {
   EmailCertificateEntity,
   AccountEntity,
   KYCInfoEntity, 
-  VerifyEmailEntity
+  VerifyEmailEntity,
+  VerificationEntity,
+  InteractionEntity
 } from 'entities';
 
 const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } = process.env;
@@ -23,7 +25,9 @@ export const dbOptions: DataSourceOptions = {
     KYCInfoEntity,
     VerifyEmailEntity,
     EmailCertificateEntity,
-    AccountEntity
+    AccountEntity,
+    VerificationEntity,
+    InteractionEntity
   ],
   extra: {
     connectionLimit: 10,
