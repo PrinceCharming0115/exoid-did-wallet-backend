@@ -7,7 +7,7 @@ import { errorHandlerMiddleware, requestLoggerMiddleware } from 'middlewares';
 import appRoutes from 'routes';
 import { ROUTE_VERSION } from 'config';
 
-const port = process.env.PORT || 3004;
+const port = process.env.PORT || 8000;
 
 const backendSetup = (app: Express) => {
   app.use(express.json());

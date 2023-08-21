@@ -25,7 +25,9 @@ export const saveVerificationFlowHandler = async (
 ) => {
   const { verificationFlow, verificationFlowName } = req.body;
 
-  const did = req.account.identifier;
+  console.log('saveData', req.body);
+
+  const did = 'did:333e';
 
   const verification = await verificationService.saveVerification({
     did,

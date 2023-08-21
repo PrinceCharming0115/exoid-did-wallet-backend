@@ -23,7 +23,7 @@ export const getInteractionListHandler = async (
   const interactionList =
     await interactionService.getInteractionListByVerificationID(req.params.id);
 
-  res.status(httpStatus.OK).json({ interactionList: interactionList });
+  res.status(httpStatus.OK).json(interactionList);
 };
 
 export const getInteractionList = errorHandlerWrapper(

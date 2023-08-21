@@ -24,7 +24,7 @@ export const getVerificationFlowHandler = async (
     id: req.params.id,
   });
 
-  res.status(httpStatus.CREATED).json({ verification: verification });
+  res.status(httpStatus.OK).json(verification);
 };
 
 export const getVerificationFlow = errorHandlerWrapper(

@@ -1,4 +1,5 @@
 import { VerificationEntity, InteractionEntity } from 'entities';
+import { off } from 'process';
 import { getVerificationRepository } from 'utils';
 
 export const saveVerification = async (
@@ -12,19 +13,27 @@ export const saveVerification = async (
   const verificaton: VerificationEntity = new VerificationEntity();
   verificaton.did = data.did;
   verificaton.verificationFlowName = data.verificationFlowName;
-  verificaton.verificationFlow = data.verificationFlow;
+  verificaton.verificationFlow = JSON.stringify(data.verificationFlow);
 
   await verificatonRepository.save(verificaton);
 
   return verificaton;
 };
 
+export const getListByLimit = async (offset: number, pageSize: number) => {
+  const verificatonRepository = await getVerificationRepository();
+
+  const list: VerificationEntity[] = await verificatonRepository.find()
+
+  return list;
+};
+
 export const getAllList = async () => {
   const verificatonRepository = await getVerificationRepository();
 
-  const list = await verificatonRepository.find();
+  const list: VerificationEntity[] = await verificatonRepository.find();
 
-  return list;
+  return list.length;
 };
 
 export const getVerification = async (

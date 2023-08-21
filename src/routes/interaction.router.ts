@@ -6,14 +6,14 @@ const interactionRouter = express.Router();
 
 interactionRouter.get(
   '/get-interaction-list/:id',
-  checkIdentifier,
+  // checkIdentifier,
   verificationController.getInteractionListValidator(),
   verificationController.getInteractionList
 );
 
 interactionRouter.get(
   '/get-interaction/:id',
-  checkIdentifier,
+  // checkIdentifier,
   verificationController.getInteractionValidator(),
   verificationController.getInteraction
 );

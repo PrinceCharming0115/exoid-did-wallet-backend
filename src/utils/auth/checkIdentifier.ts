@@ -11,7 +11,7 @@ export const checkIdentifier = async (req: any, res: Response, next: Function) =
   try {
     const data = req.header('Authorization').replace('Bearer ', '');
    
-
+    
     const identifier = await accountService.getIdentifier(data);
 
     if (!identifier) {

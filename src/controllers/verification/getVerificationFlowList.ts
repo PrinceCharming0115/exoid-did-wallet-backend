@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { Request, Response, response } from 'express';
 import httpStatus from 'http-status';
+import { off } from 'process';
 import { verificationService } from 'services';
 import { AuthRequest } from 'types';
 import { errorHandlerWrapper } from 'utils';
@@ -12,15 +13,23 @@ export const getverificationFlowListValidator = () => {
 type Params = unknown;
 type ResBody = unknown;
 type ReqBody = unknown;
-type ReqQuery = unknown;
+type ReqQuery = {
+  page: number
+};
 
 export const getVerificationFlowListHandler = async (
   req: AuthRequest<Params, ResBody, ReqBody, ReqQuery>,
   res: Response
 ) => {
-  const verificationList = await verificationService.getAllList();
-
-  res.status(httpStatus.OK).json(verificationList);
+  
+  const page = req.query.page || 1;
+  const pageSize = 10;
+  const offset = (page - 1) *  pageSize;
+  
+  const verificationList = await verificationService.getListByLimit(offset, pageSize);
+  
+  const totalVerificationNumber = await verificationService.getAllList();
+  res.status(httpStatus.OK).json({verificationList, totalVerificationNumber});
 };
 
 export const getVerificationFlowList = errorHandlerWrapper(
