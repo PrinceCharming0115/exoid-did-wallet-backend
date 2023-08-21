@@ -1,17 +1,17 @@
+import { MESSAGES, REASON_CODES } from 'consts';
+import { NotFoundError } from 'errors';
 import { Response } from 'express';
 import httpStatus from 'http-status';
-
-import { MESSAGES, REASON_CODES } from 'consts';
-
-import { NotFoundError } from 'errors';
-
 import { accountService } from 'services';
 
-export const checkIdentifier = async (req: any, res: Response, next: Function) => {
+export const checkIdentifier = async (
+  req: any,
+  res: Response,
+  next: Function
+) => {
   try {
     const data = req.header('Authorization').replace('Bearer ', '');
-   
-    
+
     const identifier = await accountService.getIdentifier(data);
 
     if (!identifier) {

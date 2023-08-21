@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { Request, Response, response } from 'express';
+import { Response } from 'express';
 import httpStatus from 'http-status';
 import { verificationService } from 'services';
 import { AuthRequest } from 'types';

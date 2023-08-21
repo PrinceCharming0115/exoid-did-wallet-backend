@@ -1,5 +1,4 @@
-import { VerificationEntity, InteractionEntity } from 'entities';
-import { off } from 'process';
+import { VerificationEntity } from 'entities';
 import { getVerificationRepository } from 'utils';
 
 export const saveVerification = async (
@@ -23,7 +22,7 @@ export const saveVerification = async (
 export const getListByLimit = async (offset: number, pageSize: number) => {
   const verificatonRepository = await getVerificationRepository();
 
-  const list: VerificationEntity[] = await verificatonRepository.find()
+  const list: VerificationEntity[] = await verificatonRepository.find();
 
   return list;
 };

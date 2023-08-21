@@ -1,6 +1,5 @@
 import express from 'express';
 import { verificationController } from 'controllers';
-import { checkIdentifier } from 'utils';
 
 const verificationRouter = express.Router();
 
