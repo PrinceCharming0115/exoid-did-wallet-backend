@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken';
 import { accountService } from 'services';
 import { JWT_TOKEN } from 'config';
 
-
 export const checkIdentifier = async (
   req: any,
   res: Response,

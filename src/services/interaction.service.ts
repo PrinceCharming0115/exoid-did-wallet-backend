@@ -1,16 +1,18 @@
-import { InteractionEntity } from 'entities';
-import { off } from 'process';
 import { getInteractionRepository } from 'utils';
 
-export const getInteractionListByVerificationID = async (verificationID, offset, pageSize) => {
+export const getInteractionListByVerificationID = async (
+  verificationID,
+  offset,
+  pageSize
+) => {
   const interactionRepository = await getInteractionRepository();
-  
+
   const list = await interactionRepository.find({
     where: {
       verificationID: verificationID,
     },
     skip: offset,
-    take: pageSize
+    take: pageSize,
   });
 
   return list;

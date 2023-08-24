@@ -1,10 +1,10 @@
 import express from 'express';
+import authRouter from './auth.router';
 import emailCertificationRouter from './email.router';
 import identifierRouter from './identifier.router';
 import interactionRouter from './interaction.router';
 import kycRouter from './kyc.router';
 import verificationRouter from './verification.router';
-import authRouter from './auth.router';
 
 const appRoutes = express.Router();
 

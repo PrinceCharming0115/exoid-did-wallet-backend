@@ -24,7 +24,7 @@ export const getListByLimit = async (offset: number, pageSize: number) => {
 
   const list: VerificationEntity[] = await verificatonRepository.find({
     skip: offset,
-    take: pageSize
+    take: pageSize,
   });
 
   return list;

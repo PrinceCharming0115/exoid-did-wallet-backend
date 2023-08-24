@@ -1,20 +1,18 @@
 import 'dotenv/config';
-import { Request, Response, response } from 'express';
+import { NotFoundError } from 'errors';
+import { Request, Response } from 'express';
 import { body } from 'express-validator';
 import httpStatus from 'http-status';
 import jwt from 'jsonwebtoken';
 import { accountService } from 'services';
-import { errorHandlerWrapper } from 'utils';
-import { NotFoundError } from 'errors';
 import { JWT_TOKEN, JWT_EXPIRATION_TIME } from 'config';
+import { errorHandlerWrapper } from 'utils';
 import { socketServer } from 'utils/socket';
-import { REASON_CODES } from 'consts';
-
 
 export const signInValidator = () => {
   return [
     body('did').notEmpty().withMessage('Did id required.'),
-    body('socketID').notEmpty().withMessage('Socket ID is required.')
+    body('socketID').notEmpty().withMessage('Socket ID is required.'),
   ];
 };
 
@@ -23,10 +21,9 @@ type ResBody = unknown;
 type ReqBody = {
   socketID: string;
   did: string;
-};;
+};
 type ReqQuery = unknown;
 
-  
 export const signInHandler = async (
   req: Request<Params, ResBody, ReqBody, ReqQuery>,
   res: Response
@@ -38,8 +35,9 @@ export const signInHandler = async (
     throw new NotFoundError('Did is not exist!');
   }
 
-  const token = jwt.sign({
-      did
+  const token = jwt.sign(
+    {
+      did,
     },
     JWT_TOKEN,
     {

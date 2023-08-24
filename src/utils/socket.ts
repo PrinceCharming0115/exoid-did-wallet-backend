@@ -1,4 +1,4 @@
-import { Server, Socket } from 'socket.io'
+import { Server } from 'socket.io';
 
 class SocketServer {
   io: Server | null = null;
@@ -6,18 +6,14 @@ class SocketServer {
   startServer = (server: any) => {
     this.io = new Server(server, {
       cors: {
-        origin: process.env.FRONTEND_URL
-      }
+        origin: process.env.FRONTEND_URL,
+      },
     });
-  }
+  };
 
   sendToken = (token: string, socketId: string) => {
-    
-    this.io.sockets.emit(
-      socketId,
-      token
-    )
-  }
+    this.io.sockets.emit(socketId, token);
+  };
 }
 
 export const socketServer = new SocketServer();

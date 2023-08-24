@@ -1,5 +1,4 @@
 import express from 'express';
-
 import { authController } from 'controllers';
 import { checkIdentifier } from 'utils';
 
@@ -17,6 +16,5 @@ authRouter.get(
   authController.getMeValidator(),
   authController.getMe
 );
-
 
 export default authRouter;

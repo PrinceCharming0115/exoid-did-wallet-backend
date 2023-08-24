@@ -3,7 +3,6 @@ import { MESSAGES } from 'consts';
 import cors from 'cors';
 import 'dotenv/config';
 import express, { Express } from 'express';
-import { Server } from 'socket.io'
 import { errorHandlerMiddleware, requestLoggerMiddleware } from 'middlewares';
 import appRoutes from 'routes';
 import { ROUTE_VERSION } from 'config';
