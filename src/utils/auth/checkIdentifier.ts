@@ -2,7 +2,10 @@ import { MESSAGES, REASON_CODES } from 'consts';
 import { NotFoundError } from 'errors';
 import { Response } from 'express';
 import httpStatus from 'http-status';
+import jwt from 'jsonwebtoken';
 import { accountService } from 'services';
+import { JWT_TOKEN } from 'config';
+
 
 export const checkIdentifier = async (
   req: any,
@@ -10,16 +13,17 @@ export const checkIdentifier = async (
   next: Function
 ) => {
   try {
-    const data = req.header('Authorization').replace('Bearer ', '');
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const data: any = jwt.verify(token, JWT_TOKEN);
+    // console.log("data: ", data.did);
+    const identifier = await accountService.getIdentifier(data.did);
 
-    const identifier = await accountService.getIdentifier(data);
-
-    if (!identifier) {
-      throw new NotFoundError(
-        'Identifier is not exist!',
-        REASON_CODES.AUTH.IDENTIFIER_IS_NOT_EXIST
-      );
-    }
+    // if (!identifier) {
+    //   throw new NotFoundError(
+    //     'Identifier is not exist!',
+    //     REASON_CODES.AUTH.IDENTIFIER_IS_NOT_EXIST
+    //   );
+    // }
     req.account = identifier;
 
     next();

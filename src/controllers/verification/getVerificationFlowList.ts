@@ -29,8 +29,8 @@ export const getVerificationFlowListHandler = async (
     pageSize
   );
 
-  const totalVerificationNumber = await verificationService.getAllList();
-  res.status(httpStatus.OK).json({ verificationList, totalVerificationNumber });
+  const verificationTotalNumber = await verificationService.getAllList();
+  res.status(httpStatus.OK).json({ verificationList, verificationTotalNumber });
 };
 
 export const getVerificationFlowList = errorHandlerWrapper(

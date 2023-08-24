@@ -3,9 +3,11 @@ import { MESSAGES } from 'consts';
 import cors from 'cors';
 import 'dotenv/config';
 import express, { Express } from 'express';
+import { Server } from 'socket.io'
 import { errorHandlerMiddleware, requestLoggerMiddleware } from 'middlewares';
 import appRoutes from 'routes';
 import { ROUTE_VERSION } from 'config';
+import { socketServer } from 'utils/socket';
 
 const port = process.env.PORT || 8000;
 
@@ -66,9 +68,11 @@ const backendSetup = (app: Express) => {
 
   app.use(errorHandlerMiddleware);
 
-  app.listen(port, () => {
+  const server = app.listen(port, () => {
     console.info(MESSAGES.SERVER_RUN_SUCCESS);
   });
+
+  socketServer.startServer(server);
 };
 
 export default backendSetup;
