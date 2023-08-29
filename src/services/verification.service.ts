@@ -19,7 +19,11 @@ export const saveVerification = async (
   return verificaton;
 };
 
-export const getListByLimit = async (offset: number, pageSize: number, did: string) => {
+export const getListByLimit = async (
+  offset: number,
+  pageSize: number,
+  did: string
+) => {
   const verificatonRepository = await getVerificationRepository();
 
   const selectData = [
@@ -30,9 +34,8 @@ export const getListByLimit = async (offset: number, pageSize: number, did: stri
     'verification_flows.created_at as createdAt',
     'verification_flows.updated_at as updatedAt',
     'verification_flows.deleted_at as deletedAt',
-    'count(interaction.verification_id) as accessCount'
-  ]
-
+    'count(interaction.verification_id) as accessCount',
+  ];
 
   const list: VerificationEntity[] = await verificatonRepository
     .createQueryBuilder('verification_flows')
@@ -43,11 +46,11 @@ export const getListByLimit = async (offset: number, pageSize: number, did: stri
       'verification_flows.id = interaction.verification_id'
     )
     .groupBy('interaction.verification_id')
-    .where({did: did})
+    .where({ did: did })
     .offset(offset)
     .limit(pageSize)
     .execute();
-  
+
   return list;
 };
 
@@ -56,8 +59,8 @@ export const getAllList = async (did) => {
 
   const list: VerificationEntity[] = await verificatonRepository.find({
     where: {
-      did: did
-    }
+      did: did,
+    },
   });
 
   return list.length;

@@ -13,16 +13,13 @@ export const checkIdentifier = async (
 ) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
-    console.log("token:", token);
-    console.log("!!token:", !!token);
+    console.log('token:', token);
+    console.log('!!token:', !!token);
     if (token === 'Bearer') {
-      throw new NotFoundError(
-        'Unauthorized',
-        REASON_CODES.AUTH.UNAUTHORIZED
-      );
+      throw new NotFoundError('Unauthorized', REASON_CODES.AUTH.UNAUTHORIZED);
     }
     const data: any = jwt.verify(token, JWT_TOKEN);
-    
+
     const identifier = await accountService.getIdentifier(data.did);
 
     if (!identifier) {

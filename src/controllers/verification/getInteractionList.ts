@@ -22,26 +22,33 @@ export const getInteractionListHandler = async (
   req: AuthRequest<Params, ResBody, ReqBody, ReqQuery>,
   res: Response
 ) => {
-
   const page: number = req.query.page || 1;
   let interactionList;
-  if ( page ==  0 ) {
-    interactionList = await interactionService.getInteractionByVerificationID(req.params.id);
+  if (page == 0) {
+    interactionList = await interactionService.getInteractionByVerificationID(
+      req.params.id
+    );
   } else {
     const pageSize = 10;
     const offset = (page - 1) * pageSize;
-    interactionList = await interactionService.getInteractionListByVerificationID(
-      req.params.id,
-      offset,
-      pageSize
-    );
+    interactionList =
+      await interactionService.getInteractionListByVerificationID(
+        req.params.id,
+        offset,
+        pageSize
+      );
   }
 
-  console.log("interaction List:", interactionList)
+  console.log('interaction List:', interactionList);
   const interactionTotalNumber =
     await interactionService.getInteractionByVerificationID(req.params.id);
 
-  res.status(httpStatus.OK).json({ interactionList: interactionList, interactionTotalNumber: interactionTotalNumber.length });
+  res
+    .status(httpStatus.OK)
+    .json({
+      interactionList: interactionList,
+      interactionTotalNumber: interactionTotalNumber.length,
+    });
 };
 
 export const getInteractionList = errorHandlerWrapper(
