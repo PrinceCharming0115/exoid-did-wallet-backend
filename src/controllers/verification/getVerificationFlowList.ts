@@ -23,13 +23,15 @@ export const getVerificationFlowListHandler = async (
   const page = req.query.page || 1;
   const pageSize = 10;
   const offset = (page - 1) * pageSize;
+  const did = req.account.identifier;
 
   const verificationList = await verificationService.getListByLimit(
     offset,
-    pageSize
+    pageSize,
+    did
   );
 
-  const verificationTotalNumber = await verificationService.getAllList();
+  const verificationTotalNumber = await verificationService.getAllList(did);
   res.status(httpStatus.OK).json({ verificationList, verificationTotalNumber });
 };
 

@@ -13,16 +13,24 @@ export const checkIdentifier = async (
 ) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
+    console.log("token:", token);
+    console.log("!!token:", !!token);
+    if (token === 'Bearer') {
+      throw new NotFoundError(
+        'Unauthorized',
+        REASON_CODES.AUTH.UNAUTHORIZED
+      );
+    }
     const data: any = jwt.verify(token, JWT_TOKEN);
-    // console.log("data: ", data.did);
+    
     const identifier = await accountService.getIdentifier(data.did);
 
-    // if (!identifier) {
-    //   throw new NotFoundError(
-    //     'Identifier is not exist!',
-    //     REASON_CODES.AUTH.IDENTIFIER_IS_NOT_EXIST
-    //   );
-    // }
+    if (!identifier) {
+      throw new NotFoundError(
+        'Identifier is not exist!',
+        REASON_CODES.AUTH.IDENTIFIER_IS_NOT_EXIST
+      );
+    }
     req.account = identifier;
 
     next();

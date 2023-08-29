@@ -18,14 +18,14 @@ export const getInteractionListByVerificationID = async (
   return list;
 };
 
-export const getInteractionCountByVerificationID = async (verificationID) => {
+export const getInteractionByVerificationID = async (verificationID) => {
   const interactionRepository = await getInteractionRepository();
 
   const list = await interactionRepository.findBy({
     verificationID: verificationID,
   });
 
-  return list.length;
+  return list;
 };
 
 export const getInteractionByID = async (ID) => {
