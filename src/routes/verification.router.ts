@@ -5,21 +5,21 @@ import { checkIdentifier } from 'utils';
 const verificationRouter = express.Router();
 
 verificationRouter.post(
-  '/save-verification',
+  '/save-verification-flow',
   checkIdentifier,
   verificationController.saveVerificatonFlowValidator(),
-  verificationController.saveVerification
+  verificationController.saveVerificationFlow
 );
 
 verificationRouter.get(
-  '/get-verification-list',
+  '/get-verification-flow-list',
   checkIdentifier,
   verificationController.getverificationFlowListValidator(),
   verificationController.getVerificationFlowList
 );
 
 verificationRouter.get(
-  '/get-verification/:id',
+  '/get-verification-flow/:id',
   checkIdentifier,
   verificationController.getVerificationFlowValidator(),
   verificationController.getVerificationFlow

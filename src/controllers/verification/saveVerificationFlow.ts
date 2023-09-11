@@ -44,6 +44,6 @@ export const saveVerificationFlowHandler = async (
   res.status(httpStatus.CREATED).json('Success');
 };
 
-export const saveVerification = errorHandlerWrapper(
+export const saveVerificationFlow = errorHandlerWrapper(
   saveVerificationFlowHandler
 );
