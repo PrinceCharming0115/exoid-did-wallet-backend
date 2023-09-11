@@ -1,5 +1,4 @@
 import { AccountEntity } from 'entities';
-
 import { getAccountRepository } from 'utils';
 
 export const getIdentifier = async (
@@ -8,14 +7,26 @@ export const getIdentifier = async (
   const accountRepository = await getAccountRepository();
 
   const accountInfo: AccountEntity | null = await accountRepository.findOneBy({
-    identifier: identifier
+    identifier: identifier,
+  });
+
+  return accountInfo;
+};
+
+export const getIdentifierByAccount = async (
+  accountID: number
+): Promise<AccountEntity | null> => {
+  const accountRepository = await getAccountRepository();
+
+  const accountInfo: AccountEntity | null = await accountRepository.findOneBy({
+    id: accountID,
   });
 
   return accountInfo;
 };
 
 export const createAccount = async (
-  data: Pick<AccountEntity, | 'UUID' | 'identifier'>
+  data: Pick<AccountEntity, 'UUID' | 'identifier'>
 ): Promise<AccountEntity | null> => {
   const accountRepository = await getAccountRepository();
 

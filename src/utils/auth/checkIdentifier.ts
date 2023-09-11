@@ -1,18 +1,26 @@
+import { MESSAGES, REASON_CODES } from 'consts';
+import { NotFoundError } from 'errors';
 import { Response } from 'express';
 import httpStatus from 'http-status';
-
-import { MESSAGES, REASON_CODES } from 'consts';
-
-import { NotFoundError } from 'errors';
-
+import jwt from 'jsonwebtoken';
 import { accountService } from 'services';
+import { JWT_TOKEN } from 'config';
 
-export const checkIdentifier = async (req: any, res: Response, next: Function) => {
+export const checkIdentifier = async (
+  req: any,
+  res: Response,
+  next: Function
+) => {
   try {
-    const data = req.header('Authorization').replace('Bearer ', '');
-   
+    const token = req.header('Authorization').replace('Bearer ', '');
+    console.log('token:', token);
+    console.log('!!token:', !!token);
+    if (token === 'Bearer') {
+      throw new NotFoundError('Unauthorized', REASON_CODES.AUTH.UNAUTHORIZED);
+    }
+    const data: any = jwt.verify(token, JWT_TOKEN);
 
-    const identifier = await accountService.getIdentifier(data);
+    const identifier = await accountService.getIdentifier(data.did);
 
     if (!identifier) {
       throw new NotFoundError(
