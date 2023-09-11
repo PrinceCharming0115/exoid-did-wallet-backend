@@ -1,5 +1,5 @@
 export * from './getVerificationFlowList';
-export * from './saveVerificatoinFlow';
+export * from './saveVerificationFlow';
 export * from './getVerificationFlow';
 export * from './getInteractionList';
 export * from './getInteraction';
